@@ -187,7 +187,13 @@ class QTMovie(object):
     def getQTTexture(self):
         if self.hasVisuals():
             return self.displayContext.getQTTexture()
-    qtTexture = property(getQTTexture)
+    def setQTTexture(self, aTexture=None):
+        if self.hasVisuals():
+            return self.displayContext.setQTTexture(aTexture)
+    def delQTTexture(self):
+        if self.hasVisuals():
+            return self.displayContext.delQTTexture()
+    qtTexture = property(getQTTexture, setQTTexture, delQTTexture)
         
     def process(self, seconds=0):
         if self.displayContext:
