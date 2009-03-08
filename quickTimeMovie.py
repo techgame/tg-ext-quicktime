@@ -11,6 +11,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import weakref
+import math
+from struct import pack, unpack
 
 import ctypes, ctypes.util
 from ctypes import cast, byref, c_void_p, c_short
@@ -245,9 +247,18 @@ class QTMovie(object):
     def hasVisuals(self):
         return sum(self.getBox()[2:]) > 0 # do we have a size?
 
+    def getPreferredRate(self):
+        r = libQuickTime.GetMoviePreferredRate(self)
+        return r / 65536.0
     def getRate(self):
-        return libQuickTime.GetMovieRate(self)
-    def setRate(self, rate):
+        r = libQuickTime.GetMovieRate(self)
+        return r / 65536.0
+    def setRate(self, rate=None):
+        if rate is None:
+            rate = libQuickTime.GetMoviePreferredRate(self)
+        else: 
+            rate = int(rate * 65536)
+
         return libQuickTime.SetMovieRate(self, rate)
 
     def getTime(self):
