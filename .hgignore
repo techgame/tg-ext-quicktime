@@ -1,0 +1,26 @@
+syntax: glob
+
+syntax: glob
+\.DS_Store
+\.svn/
+*.orig
+*~
+*.pyc
+*.pyo
+.*.swp
+.*.swo
+
+*.m4b
+*.mov
+*.wav
+*.dll
+
+syntax: regexp
+^gen/.*/build/.*
+^sandbox/misc/.*
+^proj/cepstral/test/demos/.*
+
+
+syntax: regexp
+Icon\r
+
