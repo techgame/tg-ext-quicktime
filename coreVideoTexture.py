@@ -18,8 +18,8 @@ from ctypes import c_void_p, byref
 
 import numpy
 
-from TG.openGL.raw import gl, glext
-from TG.openGL.data.texture import Texture
+from TG.ext.openGL.raw import gl, glext
+from TG.ext.openGL.data.texture import Texture
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Constants / Variiables / Etc. 

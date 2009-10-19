@@ -19,11 +19,11 @@ from ctypes import byref, c_void_p
 import numpy
 
 try:
-    from TG.openGL.raw import aglUtils
+    from TG.ext.openGL.raw import aglUtils
 except ImportError:
     aglUtils = None
 
-from TG.quicktime.coreVideoTexture import QTGWorldTexture, CVOpenGLTexture, QTCVTexture
+from TG.ext.quicktime.coreVideoTexture import QTGWorldTexture, CVOpenGLTexture, QTCVTexture
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~ Libraries
