@@ -106,6 +106,8 @@ class QTOpenGLVisualContext(QTMovieDisplayContext):
         cglCtx, cglPix = aglUtils.getCGLContextAndFormat()
         self._as_parameter_ = c_void_p()
         errqt = libQuickTime.QTOpenGLTextureContextCreate(None, cglCtx, cglPix, None, byref(self._as_parameter_))
+        if not self._as_parameter_:
+            raise RuntimeError("QTOpenGLTextureContextCreate failed with error code: %r" % (errqt,))
         return self
 
     def getMovieProperties(self):
