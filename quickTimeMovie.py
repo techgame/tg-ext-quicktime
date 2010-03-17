@@ -10,6 +10,7 @@
 #~ Imports 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+import sys
 import weakref
 import math
 from struct import pack, unpack
@@ -106,8 +107,7 @@ class QTMovie(object):
         try:
             self.destroy()
         except Exception:
-            import traceback
-            traceback.print_exc()
+            sys.excepthook(*sys.exc_info())
 
     def destroy(self):
         self.destroyMovie()
